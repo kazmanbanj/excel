@@ -20,8 +20,8 @@ class Customer extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function purchases(): HasMany
-    {
-        return $this->hasMany(Purchases::class, 'customer_id', 'id');
-    }
+    // public function purchases(): HasMany
+    // {
+    //     return $this->hasMany(Purchases::class, 'customer_id', 'id');
+    // }
 }

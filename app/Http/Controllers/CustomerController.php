@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Customer;
 use App\Exports\CustomersExport;
 use App\Exports\CustomersExportView;
+use App\Exports\CustomersExportSheets;
 use Maatwebsite\Excel\Facades\Excel;
 
 class CustomerController extends Controller
@@ -23,5 +24,23 @@ class CustomerController extends Controller
     public function export_view()
     {
         return Excel::download(new CustomersExportView(), 'customers.xlsx');
+    }
+
+    public function export_store()
+    {
+        Excel::store(new CustomersExport(), 'customers-'.now()->toDateString().'.xlsx', 'public');
+        return redirect()->back();
+    }
+
+    public function export_format($format)
+    {
+        $extension = strtolower($format);
+        if (in_array($format, ['Mpdf', 'Dompdf', 'Tcpdf'])) $extension = 'pdf';
+        return Excel::download(new CustomersExport(), 'customers.'.$extension, $format);
+    }
+
+    public function export_sheets()
+    {
+        return Excel::download(new CustomersExportSheets(), 'customers.xlsx');
     }
 }

@@ -12,6 +12,9 @@ class CustomersExport implements FromCollection
     */
     public function collection()
     {
-        return Customer::select(['id', 'firstname', 'lastname', 'email'])->get();
+        return Customer::select(['id', 'firstname', 'lastname', 'email'])
+            ->where('email', 'like', '%example.org')
+            ->orderBy('firstname')
+            ->get();
     }
 }
