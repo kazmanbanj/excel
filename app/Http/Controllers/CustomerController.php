@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Customer;
 use App\Exports\CustomersExport;
 use App\Exports\CustomersExportView;
-use App\Exports\CustomersExportSheets;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\CustomersExportSheets;
+use App\Exports\CustomersExportHeading;
+use App\Exports\CustomersExportMapping;
 
 class CustomerController extends Controller
 {
@@ -42,5 +44,15 @@ class CustomerController extends Controller
     public function export_sheets()
     {
         return Excel::download(new CustomersExportSheets(), 'customers.xlsx');
+    }
+
+    public function export_heading()
+    {
+        return Excel::download(new CustomersExportHeading(), 'customers.xlsx');
+    }
+
+    public function export_mapping()
+    {
+        return Excel::download(new CustomersExportMapping(), 'customers.xlsx');
     }
 }

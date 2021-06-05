@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Purchase;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Customer extends Model
 {
@@ -18,10 +19,10 @@ class Customer extends Model
     /**
      * Get all of the purchases for the Customer
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * 
      */
-    // public function purchases(): HasMany
-    // {
-    //     return $this->hasMany(Purchases::class, 'customer_id', 'id');
-    // }
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class, 'customer_id', 'id');
+    }
 }

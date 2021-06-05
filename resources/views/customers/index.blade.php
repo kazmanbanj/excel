@@ -12,6 +12,8 @@
         <a href="{{ route('customer.export_format', 'Html') }}" class="btn btn-primary">Download Html</a> ||
         <a href="{{ route('customer.export_format', 'Dompdf') }}" class="btn btn-primary">Download PDF</a> ||
         <a href="{{ route('customer.export_sheets') }}" class="btn btn-primary">Export into multiple sheets</a> ||
+        <a href="{{ route('customer.export_heading') }}" class="btn btn-primary">Export with heading row</a> ||
+        <a href="{{ route('customer.export_mapping') }}" class="btn btn-primary">Export Purchases</a> ||
         <br><br>
 
         @include('customers.table', $customers)
