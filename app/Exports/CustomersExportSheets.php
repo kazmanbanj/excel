@@ -4,9 +4,10 @@ namespace App\Exports;
 
 use App\Models\Customer;
 use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
-class CustomersExportSheets implements WithMultipleSheets
+class CustomersExportSheets implements WithMultipleSheets, ShouldAutoSize
 {
     use Exportable;
     /**

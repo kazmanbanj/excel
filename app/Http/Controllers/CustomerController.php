@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Exports\CustomersExport;
+use App\Exports\CustomersExportSize;
 use App\Exports\CustomersExportView;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\CustomersExportSheets;
 use App\Exports\CustomersExportHeading;
 use App\Exports\CustomersExportMapping;
+use App\Exports\CustomersExportStyling;
 
 class CustomerController extends Controller
 {
@@ -54,5 +56,15 @@ class CustomerController extends Controller
     public function export_mapping()
     {
         return Excel::download(new CustomersExportMapping(), 'customers.xlsx');
+    }
+
+    public function export_styling()
+    {
+        return Excel::download(new CustomersExportStyling(), 'customers.xlsx');
+    }
+
+    public function export_autosize()
+    {
+        return Excel::download(new CustomersExportSize(), 'customers.xlsx');
     }
 }

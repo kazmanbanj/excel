@@ -14,6 +14,8 @@
         <a href="{{ route('customer.export_sheets') }}" class="btn btn-primary">Export into multiple sheets</a> ||
         <a href="{{ route('customer.export_heading') }}" class="btn btn-primary">Export with heading row</a> ||
         <a href="{{ route('customer.export_mapping') }}" class="btn btn-primary">Export Purchases</a> ||
+        <a href="{{ route('customer.export_styling') }}" class="btn btn-primary">Export with Styling</a> ||
+        <a href="{{ route('customer.export_autosize') }}" class="btn btn-primary">Export with Autosizing</a> ||
         <br><br>
 
         @include('customers.table', $customers)

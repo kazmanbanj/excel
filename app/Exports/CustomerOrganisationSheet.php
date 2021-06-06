@@ -5,8 +5,9 @@ namespace App\Exports;
 use App\Models\Customer;
 use Maatwebsite\Excel\Concerns\WithTitle;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class CustomerOrganisationSheet implements FromCollection, WithTitle
+class CustomerOrganisationSheet implements FromCollection, WithTitle, ShouldAutoSize
 {
     private $organisation;
 

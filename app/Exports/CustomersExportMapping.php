@@ -5,8 +5,9 @@ namespace App\Exports;
 use App\Models\Purchase;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class CustomersExportMapping implements FromCollection, WithMapping
+class CustomersExportMapping implements FromCollection, WithMapping, ShouldAutoSize
 {
     /**
     * @return \Illuminate\Support\Collection
